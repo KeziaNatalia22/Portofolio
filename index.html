@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Kezia Natalia Permana — Software Quality Assurance & Platform Developer</title>
   <meta name="description"
     content="Portfolio of Kezia Natalia Permana — Software Quality Assurance Engineer & Full-Stack Developer specializing in functional testing, Postman API validation, defect analysis, and enterprise software reliability.">
@@ -18,11 +18,25 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/kezia-portrait.jpg">
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23330B10'/><text x='50%' y='65%' font-family='serif' font-weight='bold' font-size='55' fill='%23C5A059' text-anchor='middle'>K</text></svg>">
+
+  <!-- Google Fonts: Playfair Display, Cormorant Garamond, Montserrat & Pinyon Script -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -31,61 +45,38 @@
   <div class="custom-cursor"></div>
   <div class="custom-cursor-follower"></div>
 
-  <!-- ==========================================================================
-       HEADER & NAVIGATION
-       ========================================================================== -->
-  <header class="site-header">
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <span>CREATIVE PORTFOLIO</span>
+  <!-- Ambient Glow Elements (Luxury Gold & Burgundy Tones) -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Editorial Top Window Bar (OS Studio Style) -->
+  <header class="top-window-bar">
+    <div class="top-bar-inner">
+      <div class="window-controls">
+        <span class="dot dot-close"></span>
+        <span class="dot dot-min"></span>
+        <span class="dot dot-expand"></span>
       </div>
-      <div class="top-bar-center">
-        <span class="sparkle-icon">✦</span>
+      <div class="window-center-tag">
+        <span class="pulse-indicator"></span>
+        <span class="tag-text">KEZIA NATALIA PERMANA — PORTFOLIO</span>
       </div>
-      <div class="top-bar-right">
-        <div>ASSURING QUALITY</div>
-        <div>AUTOMATION & RELIABILITY</div>
-        <div>ELEVATING SOFTWARE</div>
+      <div class="window-actions">
+        <a href="#connect" class="top-contact-link">Get In Touch</a>
       </div>
     </div>
-
-    <nav class="nav-container">
-      <a href="#" class="brand-logo">
-        <span>KEZIA NATALIA</span>
-        <span class="logo-dot">✦</span>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="#hero" class="nav-link active">Home</a></li>
-        <li><a href="#featured-work" class="nav-link">Featured Work</a></li>
-        <li><a href="#expertise" class="nav-link">What I Do</a></li>
-        <li><a href="#achievements" class="nav-link">Achievements</a></li>
-        <li><a href="#tech-stack" class="nav-link">Tech Stack</a></li>
-        <li><a href="#connect" class="nav-link">Contact</a></li>
-      </ul>
-
-      <div class="nav-cta">
-        <a href="assets/kezia-natalia-cv.pdf" download="Kezia_Natalia_Permana_CV.pdf" class="btn-luxury-sm">
-          <i class="fa-solid fa-arrow-down-to-bracket" style="margin-right: 0.4rem; font-size: 0.75rem;"></i> CV
-        </a>
-        <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </nav>
   </header>
 
-  <main>
+  <main class="page-container">
+
     <!-- ==========================================================================
-         HERO SECTION (LUXURY EDITORIAL)
+         HERO SECTION (LUXURY HIGH-IMPACT EDITORIAL SHOWCASE)
          ========================================================================== -->
-    <section id="hero" class="hero-section">
+    <section class="hero-section" id="hero">
       <div class="hero-ambient-glow"></div>
 
-      <div class="container">
-        <!-- Giant Display Title matching reference -->
+      <div class="section-container hero-container">
+        <!-- Giant Display Title matching luxury editorial standard -->
         <div class="hero-title-wrapper reveal">
           <h1 class="hero-main-title">
             P<span class="title-sparkle-o">O</span>RTF<span class="title-sparkle-o">O</span>LIO
@@ -103,21 +94,32 @@
           <div class="hero-divider-line"></div>
         </div>
 
-        <!-- Split 2-Column Hero Content Grid -->
-        <div class="hero-grid">
-          <!-- Left Column -->
-          <div class="hero-content reveal reveal-delay-2">
+        <!-- Hero Split Grid -->
+        <div class="hero-split-grid">
+
+          <!-- Left Column: Name, Statement, Pills & Stats Strip -->
+          <div class="hero-intro-col reveal reveal-delay-2">
+            <div class="hero-badge-wrap">
+              <span class="badge-status">
+                <span class="status-live-dot"></span>
+                <span>OPEN FOR SQA &amp; DEV OPPORTUNITIES</span>
+              </span>
+            </div>
+
             <div class="hero-role-badge">
               SOFTWARE QUALITY ASSURANCE &amp; PLATFORM DEVELOPER
             </div>
 
-            <p class="hero-statement">
-              I ensure <strong>uncompromising software reliability</strong> through rigorous functional testing, defect
-              identification, and seamless API validation for enterprise platforms.
-            </p>
+            <h2 class="hero-name-display">
+              KEZIA NATALIA <span class="hero-name-em">PERMANA</span>
+            </h2>
 
-            <div class="hero-signature-wrap">
-              <span class="hero-signature">Kezia Natalia</span>
+            <div class="hero-bio-box">
+              <p class="hero-statement">
+                I ensure <strong>uncompromising software reliability</strong> through rigorous functional testing,
+                defect
+                identification, and seamless API validation for enterprise platforms.
+              </p>
             </div>
 
             <div class="hero-location">
@@ -125,54 +127,531 @@
               <span>BASED IN BANDUNG, INDONESIA · GLOBAL REMOTE READY</span>
             </div>
 
-            <div class="hero-actions">
-              <a href="#featured-work" class="btn-primary">
+            <!-- Integrated Skill Pills -->
+            <div class="pill-tags-group hero-pills">
+              <span class="pill-badge"><i data-lucide="check-circle-2"></i> Functional &amp; UAT Testing</span>
+              <span class="pill-badge"><i data-lucide="send"></i> Postman API Validation</span>
+              <span class="pill-badge"><i data-lucide="award"></i> AWS &amp; SAP Certified</span>
+              <span class="pill-badge"><i data-lucide="graduation-cap"></i> 3.70 GPA Sarjana Informatika</span>
+            </div>
+
+            <!-- Hero Stats Strip -->
+            <div class="hero-stats-strip">
+              <div class="h-stat-item">
+                <span class="h-stat-num">50+</span>
+                <span class="h-stat-lbl">Tickets Validated</span>
+              </div>
+              <div class="h-stat-divider"></div>
+              <div class="h-stat-item">
+                <span class="h-stat-num">23</span>
+                <span class="h-stat-lbl">Defects Logged</span>
+              </div>
+              <div class="h-stat-divider"></div>
+              <div class="h-stat-item">
+                <span class="h-stat-num">3.70</span>
+                <span class="h-stat-lbl">Informatika GPA</span>
+              </div>
+            </div>
+
+            <!-- Hero Actions -->
+            <div class="hero-cta-group">
+              <a href="#featured-work" class="btn btn-primary" id="btn-explore-work">
                 <span>Explore Work</span>
-                <i class="fa-solid fa-arrow-down" style="font-size: 0.75rem;"></i>
+                <i data-lucide="arrow-down" class="btn-icon"></i>
               </a>
-              <a href="assets/kezia-natalia-cv.pdf" target="_blank" class="btn-outline">
-                <i class="fa-solid fa-file-pdf"></i>
-                <span>Download Resume</span>
+              <a href="#documents-hub" class="btn btn-outline">
+                <i data-lucide="folder-check" class="btn-icon"></i>
+                <span>Portfolio Evidence</span>
               </a>
-              <a href="#connect" class="btn-outline">
+              <a href="#connect" class="btn btn-outline" title="Connect with Kezia">
+                <i data-lucide="message-circle" class="btn-icon"></i>
                 <span>Let's Connect</span>
               </a>
             </div>
           </div>
 
-          <!-- Right Column: Grand Burgundy Arch Frame -->
-          <div class="hero-visual reveal reveal-delay-3">
+          <!-- Right Column: Grand Arch Frame & Botanical Showcase -->
+          <div class="hero-portrait-col reveal reveal-delay-3">
             <div class="arch-container">
               <!-- Deep Burgundy Arch Background -->
               <div class="arch-backdrop">
                 <!-- Inner Light Ring -->
                 <div class="arch-inner-glow"></div>
-                <!-- Golden Botanical Line Art -->
+                <!-- Golden Botanical Line Art Overlay -->
                 <div class="arch-botanical-overlay"></div>
               </div>
 
-              <!-- Kezia's Portrait Image -->
+              <!-- Kezia's Portrait Image Frame -->
               <div class="arch-portrait-wrapper">
-                <img src="assets/images/kezia-portrait.jpg" alt="Kezia Natalia Permana" class="arch-portrait">
+                <img src="assets/images/kezia-portrait.jpg" alt="Kezia Natalia Permana Portrait" class="arch-portrait"
+                  id="hero-img">
+                <div class="portrait-glass-gradient"></div>
               </div>
 
               <!-- Floating Stat Badges -->
-              <div class="hero-stat-badge badge-pos-1">
-                <span class="badge-icon">✦</span>
-                <span>50+ Test Tickets Validated</span>
+              <div class="floating-hero-pill pill-pos-1">
+                <div class="f-pill-icon"><i data-lucide="check-circle-2"></i></div>
+                <div class="f-pill-text">
+                  <strong>50+ Test Tickets</strong>
+                  <span>Validated at EFG Consulting</span>
+                </div>
               </div>
 
-              <div class="hero-stat-badge badge-pos-2">
-                <span class="badge-icon">✦</span>
-                <span>23 Critical Defects Documented</span>
+              <div class="floating-hero-pill pill-pos-2">
+                <div class="f-pill-icon"><i data-lucide="bug"></i></div>
+                <div class="f-pill-text">
+                  <strong>23 Critical Defects</strong>
+                  <span>Documented &amp; Resolved</span>
+                </div>
               </div>
 
-              <div class="hero-stat-badge badge-pos-3">
-                <span class="badge-icon">✦</span>
-                <span>3.7 GPA Sarjana Informatika</span>
+              <div class="floating-hero-pill pill-pos-3">
+                <div class="f-pill-icon"><i data-lucide="award"></i></div>
+                <div class="f-pill-text">
+                  <strong>3.70 GPA Honors</strong>
+                  <span>Sarjana Informatika ITHB</span>
+                </div>
               </div>
             </div>
           </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIM INFINITE MARQUEE BANNER -->
+    <section class="marquee-divider-section">
+      <div class="marquee-track-wrap">
+        <div class="marquee-content scroll-left">
+          <span>SOFTWARE QUALITY ASSURANCE</span> <span class="star">✦</span>
+          <span>ENTERPRISE API TESTING</span> <span class="star">✦</span>
+          <span>POSTMAN &amp; PLAYWRIGHT</span> <span class="star">✦</span>
+          <span>50+ TEST TICKETS VALIDATED</span> <span class="star">✦</span>
+          <span>23 CRITICAL DEFECTS LOGGED</span> <span class="star">✦</span>
+          <span>FULL-STACK PLATFORM DEVELOPER</span> <span class="star">✦</span>
+          <span>AWS ACADEMY CLOUD FOUNDATIONS</span> <span class="star">✦</span>
+          <span>SAP S/4HANA CONFIGURATION</span> <span class="star">✦</span>
+          <span>SARJANA INFORMATIKA (GPA 3.70)</span> <span class="star">✦</span>
+          <!-- Duplicate for seamless loop -->
+          <span>SOFTWARE QUALITY ASSURANCE</span> <span class="star">✦</span>
+          <span>ENTERPRISE API TESTING</span> <span class="star">✦</span>
+          <span>POSTMAN &amp; PLAYWRIGHT</span> <span class="star">✦</span>
+          <span>50+ TEST TICKETS VALIDATED</span> <span class="star">✦</span>
+          <span>23 CRITICAL DEFECTS LOGGED</span> <span class="star">✦</span>
+          <span>FULL-STACK PLATFORM DEVELOPER</span> <span class="star">✦</span>
+          <span>AWS ACADEMY CLOUD FOUNDATIONS</span> <span class="star">✦</span>
+          <span>SAP S/4HANA CONFIGURATION</span> <span class="star">✦</span>
+          <span>SARJANA INFORMATIKA (GPA 3.70)</span> <span class="star">✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STICKY FLOATING EDITORIAL NAVIGATION BAR -->
+    <nav class="sticky-nav-container" id="sticky-nav-wrap">
+      <div class="sticky-nav" id="sticky-nav">
+        <div class="nav-links">
+          <a href="#metrics" class="nav-item active" data-nav="metrics">METRICS</a>
+          <a href="#experience" class="nav-item" data-nav="experience">EXPERIENCE</a>
+          <a href="#featured-work" class="nav-item" data-nav="featured-work">PORTFOLIO</a>
+          <a href="#expertise" class="nav-item" data-nav="expertise">WHAT I DO</a>
+          <a href="#achievements" class="nav-item" data-nav="achievements">ACHIEVEMENTS</a>
+          <a href="#tech-stack" class="nav-item" data-nav="tech-stack">TECH STACK</a>
+          <a href="#documents-hub" class="nav-item" data-nav="documents-hub">DOCUMENTS</a>
+          <a href="#connect" class="nav-item" data-nav="connect">CONTACT</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ==========================================================================
+         MEASURABLE IMPACT / METRICS SECTION
+         ========================================================================== -->
+    <section class="section metrics-section" id="metrics">
+      <div class="section-container">
+        <div class="section-header-centered reveal">
+          <span class="badge-tag">MEASURABLE IMPACT</span>
+          <h2 class="editorial-headline">
+            QUALITY &amp; RELIABILITY <span class="serif-italic">is kinda</span> <strong>my standard</strong>
+          </h2>
+          <p class="editorial-subtitle">A track record of precision testing, thorough defect analysis, and enterprise
+            software reliability.</p>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="metrics-grid">
+
+          <div class="metric-card reveal reveal-delay-1">
+            <div class="metric-top">
+              <i data-lucide="check-square" class="metric-icon"></i>
+              <span class="metric-trend">Enterprise QA</span>
+            </div>
+            <div class="metric-number" data-target="50" data-format="raw">50+</div>
+            <div class="metric-label">Testing Tickets Validated</div>
+            <p class="metric-subtext">Completed across TMS &amp; Quoting Tools verifying business logic, enhancements,
+              and user flows.</p>
+          </div>
+
+          <div class="metric-card reveal reveal-delay-2">
+            <div class="metric-top">
+              <i data-lucide="bug" class="metric-icon"></i>
+              <span class="metric-trend">Zero Escape</span>
+            </div>
+            <div class="metric-number" data-target="23" data-format="raw">23</div>
+            <div class="metric-label">Critical Defects Documented</div>
+            <p class="metric-subtext">Reported with detailed reproduction steps, logs, and severity grading using Jira
+              and Trello.</p>
+          </div>
+
+          <div class="metric-card reveal reveal-delay-3">
+            <div class="metric-top">
+              <i data-lucide="users" class="metric-icon"></i>
+              <span class="metric-trend">Multi-Role Testing</span>
+            </div>
+            <div class="metric-number" data-target="4" data-format="raw">4</div>
+            <div class="metric-label">User Roles Validated</div>
+            <p class="metric-subtext">Verified permission hierarchies and quote status workflows for Client, Sales, GM,
+              and Operations.</p>
+          </div>
+
+          <div class="metric-card reveal reveal-delay-1">
+            <div class="metric-top">
+              <i data-lucide="graduation-cap" class="metric-icon"></i>
+              <span class="metric-trend">2 Semesters</span>
+            </div>
+            <div class="metric-number" data-target="59" data-format="raw">59</div>
+            <div class="metric-label">Students Guided &amp; Mentored</div>
+            <p class="metric-subtext">35 Web Platform students (React / Express) &amp; 24 Algorithm Lab students (Java
+              OOP) at ITHB.</p>
+          </div>
+
+          <div class="metric-card reveal reveal-delay-2">
+            <div class="metric-top">
+              <i data-lucide="award" class="metric-icon"></i>
+              <span class="metric-trend">Sarjana Informatika</span>
+            </div>
+            <div class="metric-number" data-target="3.7" data-format="decimal">3.70</div>
+            <div class="metric-label">Grade Point Average (GPA)</div>
+            <p class="metric-subtext">Graduated with academic excellence from Institut Teknologi Harapan Bangsa (ITHB),
+              Bandung.</p>
+          </div>
+
+          <div class="metric-card reveal reveal-delay-3">
+            <div class="metric-top">
+              <i data-lucide="shield-check" class="metric-icon"></i>
+              <span class="metric-trend">Verified Credentials</span>
+            </div>
+            <div class="metric-number" data-target="3" data-format="raw">3</div>
+            <div class="metric-label">Enterprise Credentials</div>
+            <p class="metric-subtext">AWS Academy Cloud Foundations (ACF), SAP Business Suite &amp; S/4HANA, and
+              Certiplus Honors.</p>
+          </div>
+
+        </div>
+
+        <!-- Social Channels Bar -->
+        <div class="social-channels-bar reveal">
+          <div class="social-item" data-action="copy" data-value="kezianatalia2204@gmail.com">
+            <i data-lucide="mail"></i>
+            <span class="social-name">Email</span>
+            <span class="social-detail">kezianatalia2204@gmail.com</span>
+          </div>
+          <a href="https://wa.me/6283890559622" target="_blank" class="social-item">
+            <i data-lucide="message-circle"></i>
+            <span class="social-name">WhatsApp</span>
+            <span class="social-detail">(+62) 838 9055 9622</span>
+          </a>
+          <a href="https://linkedin.com/in/kezianataliapermana" target="_blank" class="social-item"
+            title="LinkedIn Profile">
+            <img src="assets/images/linkedin-luxury.svg" alt="LinkedIn" class="social-custom-logo">
+            <span class="social-name">LinkedIn</span>
+            <span class="social-detail">Kezia Natalia Permana</span>
+          </a>
+          <a href="https://github.com/KeziaNatalia22" target="_blank" class="social-item" title="GitHub Profile">
+            <img src="assets/images/github-luxury.svg" alt="GitHub" class="social-custom-logo">
+            <span class="social-name">GitHub</span>
+            <span class="social-detail">KeziaNatalia22</span>
+          </a>
+          <div class="social-item" data-action="copy" data-value="Bandung, West Java, Indonesia">
+            <i data-lucide="map-pin"></i>
+            <span class="social-name">Location</span>
+            <span class="social-detail">Bandung, ID</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DID YOU KNOW? / SPOTLIGHT STORY
+         ========================================================================== -->
+    <section class="section did-you-know-section">
+      <div class="section-container">
+        <div class="spotlight-container reveal">
+
+          <div class="spotlight-image-side">
+            <div class="spotlight-frame">
+              <img src="assets/images/kezia-portrait.jpg" alt="Kezia Natalia Spotlight" class="spotlight-img">
+              <div class="spotlight-tag-badge">
+                <span>QUALITY EXCELLENCE</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="spotlight-content-side">
+            <h2 class="spotlight-lead-title serif-italic">Did you know?</h2>
+            <div class="huge-stat-display">
+              <span class="stat-big-number">50+</span>
+              <span class="stat-unit">Validated Test Tickets</span>
+            </div>
+            <p class="spotlight-text">
+              During my Software Quality Assurance engagement at <strong>EFG Consulting</strong> (Bali / Remote),
+              I validated over 50 enterprise tickets across Transportation Management Systems (TMS) and Quoting Tools,
+              documenting 23 critical defects and ensuring zero production regressions.
+            </p>
+
+            <div class="spotlight-keypoints">
+              <div class="keypoint-item">
+                <div class="keypoint-icon"><i data-lucide="check-circle-2"></i></div>
+                <div class="keypoint-text">
+                  <strong>Rigorous Defect Identification:</strong> Uncovered 23 complex functional and payload anomalies
+                  with actionable logs, reproduction steps, and severity tagging.
+                </div>
+              </div>
+              <div class="keypoint-item">
+                <div class="keypoint-icon"><i data-lucide="check-circle-2"></i></div>
+                <div class="keypoint-text">
+                  <strong>API &amp; Workflow Validation:</strong> Utilized Postman to test end-to-end status changes,
+                  automated notification triggers, and multi-role access controls.
+                </div>
+              </div>
+              <div class="keypoint-item">
+                <div class="keypoint-icon"><i data-lucide="check-circle-2"></i></div>
+                <div class="keypoint-text">
+                  <strong>Dual Academic &amp; Cloud Excellence:</strong> Appointed Assistant Lecturer for Platform
+                  Programming &amp; Algorithm Lab while achieving official AWS Academy &amp; SAP certifications.
+                </div>
+              </div>
+            </div>
+
+            <div class="spotlight-cta" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="#featured-work" class="btn btn-primary">
+                <span>View Case Studies</span>
+                <i data-lucide="arrow-right" class="btn-icon"></i>
+              </a>
+              <a href="assets/Portofolio QA.pdf" target="_blank" class="btn btn-outline">
+                <i data-lucide="file-check" class="btn-icon"></i>
+                <span>Open SQA Portfolio (PDF)</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PROFESSIONAL EXPERIENCE SECTION
+         ========================================================================== -->
+    <section class="section experience-section" id="experience">
+      <div class="section-container">
+        <div class="section-header-centered reveal">
+          <span class="badge-tag">CAREER JOURNEY</span>
+          <h2 class="editorial-headline">
+            PROFESSIONAL <span class="serif-italic">Experience</span>
+          </h2>
+          <p class="editorial-subtitle">Demonstrated expertise in Software Quality Assurance, academic teaching
+            mentorship, and enterprise systems configuration.</p>
+        </div>
+
+        <div class="experience-timeline">
+
+          <!-- Experience Card 1 -->
+          <div class="exp-card reveal reveal-delay-1">
+            <div class="exp-header">
+              <div class="exp-period">
+                <span class="period-pill">May 2026 — August 2026</span>
+                <span class="badge-onsite">Bali / Remote • 3 Months</span>
+              </div>
+              <div class="exp-role-wrap">
+                <h3 class="exp-role">Software Quality Assurance Intern</h3>
+                <h4 class="exp-company">EFG Consulting — Bali (Remote Talent Solutions)</h4>
+              </div>
+            </div>
+
+            <div class="exp-body">
+              <p class="exp-summary">
+                Executed comprehensive quality assurance for enterprise <strong>Transportation Management System
+                  (TMS)</strong> and <strong>Quoting Tools</strong>, guaranteeing defect-free releases and seamless
+                business workflow execution across four stakeholder roles.
+              </p>
+
+              <ul class="exp-highlights">
+                <li>
+                  <i data-lucide="check" class="exp-bullet-icon"></i>
+                  <div><strong>50+ Testing Tickets Validated:</strong> Executed functional, regression, smoke, and User
+                    Acceptance Testing (UAT) according to stringent business requirements.</div>
+                </li>
+                <li>
+                  <i data-lucide="check" class="exp-bullet-icon"></i>
+                  <div><strong>23 Critical Defects Documented:</strong> Logged software anomalies in Jira/Trello with
+                    clear reproduction steps, screenshots, severity grading, and network payloads.</div>
+                </li>
+                <li>
+                  <i data-lucide="check" class="exp-bullet-icon"></i>
+                  <div><strong>API &amp; Status Testing:</strong> Utilized Postman to validate status updates, email
+                    notification triggers, and payload responses across Client, Sales, GM, and Ops roles.</div>
+                </li>
+                <li>
+                  <i data-lucide="check" class="exp-bullet-icon"></i>
+                  <div><strong>Cross-Functional Collaboration:</strong> Partnered closely with developers, senior QA
+                    engineers, and project managers to verify bug fixes and prevent side regressions.</div>
+                </li>
+              </ul>
+
+              <div class="exp-skills-tags" style="margin-bottom: 1.2rem;">
+                <span class="skill-chip">Postman API Testing</span>
+                <span class="skill-chip">Functional Testing</span>
+                <span class="skill-chip">Regression Testing</span>
+                <span class="skill-chip">Jira &amp; Trello</span>
+                <span class="skill-chip">UAT</span>
+                <span class="skill-chip">Defect Lifecycle</span>
+              </div>
+
+              <!-- Evidence link badge -->
+              <div class="exp-evidence-wrap">
+                <a href="assets/Portofolio QA.pdf" target="_blank" class="exp-evidence-pill">
+                  <i data-lucide="file-check"></i>
+                  <span>View Official QA Internship Portfolio (PDF)</span>
+                  <i data-lucide="arrow-up-right" style="width: 13px; height: 13px; margin-left: auto;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Card 2 -->
+          <div class="exp-card reveal reveal-delay-2">
+            <div class="exp-header">
+              <div class="exp-period">
+                <span class="period-pill">August 2025 — May 2026</span>
+                <span class="badge-onsite">Bandung • 2 Semesters</span>
+              </div>
+              <div class="exp-role-wrap">
+                <h3 class="exp-role">Assistant Lecturer (Teaching Assistant)</h3>
+                <h4 class="exp-company">Institut Teknologi Harapan Bangsa (ITHB) — Department of Informatics</h4>
+              </div>
+            </div>
+
+            <div class="exp-body">
+              <p class="exp-summary">
+                Selected as Academic Teaching Assistant for two essential computer science laboratory courses:
+                <strong>Platform-Based Programming</strong> (React, Node, Express, PostgreSQL/MySQL) and
+                <strong>Algorithm Lab</strong> (Java &amp; OOP).
+              </p>
+
+              <ul class="exp-highlights">
+                <li>
+                  <i data-lucide="check" class="exp-bullet-icon"></i>
+                  <div><strong>Mentored 59 Students:</strong> Guided 35 full-stack web development students and 24 Java
+                    algorithm students through weekly coding labs and evaluation checkpoints.</div>
+                </li>
+                <li>
+                  <i data-lucide="check" class="exp-bullet-icon"></i>
+                  <div><strong>Code Reviews &amp; Architecture:</strong> Guided students on component-based React
+                    architecture, RESTful API routing with Express.js, and Sequelize ORM integration.</div>
+                </li>
+                <li>
+                  <i data-lucide="check" class="exp-bullet-icon"></i>
+                  <div><strong>Technical Debugging:</strong> Led hands-on troubleshooting sessions resolving logic bugs,
+                    asynchronous state issues, and database connection anomalies.</div>
+                </li>
+                <li>
+                  <i data-lucide="check" class="exp-bullet-icon"></i>
+                  <div><strong>Community Leadership:</strong> Served as Member of Internal Event &amp; Finance
+                    Coordinator for the ITHB Informatics Community (2024–2026).</div>
+                </li>
+              </ul>
+
+              <div class="exp-skills-tags" style="margin-bottom: 1.2rem;">
+                <span class="skill-chip">React.js</span>
+                <span class="skill-chip">Node.js &amp; Express</span>
+                <span class="skill-chip">Java &amp; OOP</span>
+                <span class="skill-chip">Sequelize ORM</span>
+                <span class="skill-chip">Database Design</span>
+                <span class="skill-chip">Code Review</span>
+              </div>
+
+              <!-- Evidence link badge -->
+              <div class="exp-evidence-wrap">
+                <a href="assets/Portofolio - Kezia Natalia Permana.pdf" target="_blank" class="exp-evidence-pill">
+                  <i data-lucide="file-code"></i>
+                  <span>View Web &amp; App Development Portfolio (PDF)</span>
+                  <i data-lucide="arrow-up-right" style="width: 13px; height: 13px; margin-left: auto;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Card 3 -->
+          <div class="exp-card reveal reveal-delay-3">
+            <div class="exp-header">
+              <div class="exp-period">
+                <span class="period-pill">2025 — 2026</span>
+                <span class="badge-onsite">Enterprise Training &amp; Certifications</span>
+              </div>
+              <div class="exp-role-wrap">
+                <h3 class="exp-role">Enterprise Systems &amp; Cloud Engineering Scholar</h3>
+                <h4 class="exp-company">ITHB Career Resource Center, AWS Academy &amp; SAP Learning</h4>
+              </div>
+            </div>
+
+            <div class="exp-body">
+              <p class="exp-summary">
+                Completed rigorous professional enterprise certifications spanning cloud computing infrastructure,
+                security foundations, and enterprise resource planning (ERP) business processes.
+              </p>
+
+              <ul class="exp-highlights">
+                <li>
+                  <i data-lucide="check" class="exp-bullet-icon"></i>
+                  <div><strong>AWS Academy Cloud Foundations (ACF):</strong> Certified in core cloud architectures, EC2,
+                    S3, RDS, VPC, security best practices, and billing economics (Nov 2025).</div>
+                </li>
+                <li>
+                  <i data-lucide="check" class="exp-bullet-icon"></i>
+                  <div><strong>SAP Business Suite &amp; S/4HANA:</strong> Certified in end-to-end integrated business
+                    processes, Global Bike simulation, and ERP system configuration.</div>
+                </li>
+                <li>
+                  <i data-lucide="check" class="exp-bullet-icon"></i>
+                  <div><strong>Certiplus Professional Honors:</strong> Recognized for excellence in advanced computer
+                    literacy, communication, leadership, and entrepreneurship (Dec 2025).</div>
+                </li>
+              </ul>
+
+              <div class="exp-skills-tags" style="margin-bottom: 1.2rem;">
+                <span class="skill-chip">AWS Cloud Foundations</span>
+                <span class="skill-chip">SAP S/4HANA</span>
+                <span class="skill-chip">SAP Business Suite</span>
+                <span class="skill-chip">Cloud Security</span>
+                <span class="skill-chip">Certiplus Program</span>
+              </div>
+
+              <!-- Credential links -->
+              <div class="exp-evidence-wrap" style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                <a href="https://www.credly.com/badges/012be65d-c3ba-47c6-b69d-a2aee50e8bb6" target="_blank"
+                  rel="noopener noreferrer" class="exp-evidence-pill">
+                  <i data-lucide="award"></i>
+                  <span>Verify AWS Credly Badge</span>
+                  <i data-lucide="arrow-up-right" style="width: 13px; height: 13px; margin-left: auto;"></i>
+                </a>
+                <a href="https://badger.learning.sap.com/verify/xyvid-comyv-mokyl-mogom-casav" target="_blank"
+                  rel="noopener noreferrer" class="exp-evidence-pill">
+                  <i data-lucide="award"></i>
+                  <span>Verify SAP Learning Badge</span>
+                  <i data-lucide="arrow-up-right" style="width: 13px; height: 13px; margin-left: auto;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -180,64 +659,123 @@
     <!-- ==========================================================================
          FEATURED WORK SECTION (RICH BURGUNDY BAND)
          ========================================================================== -->
-    <section id="featured-work" class="featured-work-section">
-      <div class="container">
+    <section class="section featured-work-section" id="featured-work">
+      <div class="section-container">
         <div class="section-header-centered reveal">
-          <div class="section-tag-gold">FEATURED EXPERIENCE &amp; HIGHLIGHTS</div>
-          <p class="section-subtext">Professional QA Internship, Academic Teaching Mentorship &amp; Enterprise Certifications</p>
+          <div class="section-tag-gold">FEATURED WORK &amp; HIGHLIGHTS</div>
+          <h2 class="editorial-headline text-light">
+            PROJECTS &amp; <span class="serif-italic">Case Studies</span>
+          </h2>
+          <p class="section-subtext">Selected portfolio highlights combining enterprise QA, full-stack platform
+            development, and verified technical credentials.</p>
         </div>
 
+        <!-- 3-Column Projects Grid -->
         <div class="projects-grid">
+
           <!-- Card 1: SQA Internship at EFG Consulting -->
-          <article class="project-card reveal reveal-delay-1">
+          <article class="project-card reveal reveal-delay-1" data-id="tms">
             <div class="project-thumb-wrap">
               <img src="assets/images/project-tms.jpg" alt="Transportation Management System QA" class="project-thumb">
-              <div class="project-overlay-badge">INTERNSHIP · EFG CONSULTING</div>
+              <div class="project-overlay-badge">
+                <i data-lucide="check-circle-2"></i>
+                <span>INTERNSHIP · EFG CONSULTING</span>
+              </div>
             </div>
             <div class="project-details">
+              <div class="project-meta">
+                <span class="project-year">MAY 2026 – AUG 2026</span>
+                <span class="project-cat">Enterprise QA &amp; API Validation</span>
+              </div>
               <h3 class="project-title">TMS &amp; Quoting Tools QA</h3>
-              <div class="project-category">Enterprise Functional, Regression &amp; API Testing</div>
-              <div class="project-year">— MAY 2026 – AUG 2026 —</div>
-              <button class="btn-card-action" data-project-trigger="tms">
-                <span>View Internship Details</span>
-                <i class="fa-solid fa-arrow-right-long"></i>
-              </button>
+              <p class="project-desc">
+                Enterprise Functional, Regression, and Postman API Testing for cloud Transportation Management Systems,
+                validating 50+ tickets and documenting 23 defects across 4 user roles.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Postman</span>
+                <span class="tag">Jira</span>
+                <span class="tag">Regression</span>
+                <span class="tag">UAT</span>
+              </div>
+              <div class="project-card-actions">
+                <button class="btn-card-action project-view-btn" data-project-trigger="tms">
+                  <span>View Case Details</span>
+                  <i data-lucide="arrow-up-right"></i>
+                </button>
+              </div>
             </div>
           </article>
 
           <!-- Card 2: Assistant Lecturer at ITHB -->
-          <article class="project-card reveal reveal-delay-2">
+          <article class="project-card reveal reveal-delay-2" data-id="platform">
             <div class="project-thumb-wrap">
               <img src="assets/images/project-platform.jpg" alt="Academic Lab Mentorship" class="project-thumb">
-              <div class="project-overlay-badge">ASSISTANT LECTURER · ITHB</div>
+              <div class="project-overlay-badge">
+                <i data-lucide="graduation-cap"></i>
+                <span>ASSISTANT LECTURER · ITHB</span>
+              </div>
             </div>
             <div class="project-details">
+              <div class="project-meta">
+                <span class="project-year">2025 – 2026</span>
+                <span class="project-cat">Web MVC &amp; Algorithm Lab</span>
+              </div>
               <h3 class="project-title">Academic Lab Mentorship</h3>
-              <div class="project-category">Platform Programming (Web MVC) &amp; Algorithm Lab (Java)</div>
-              <div class="project-year">— 2025 – 2026 —</div>
-              <button class="btn-card-action" data-project-trigger="platform">
-                <span>View Teaching Experience</span>
-                <i class="fa-solid fa-arrow-right-long"></i>
-              </button>
+              <p class="project-desc">
+                Guided 59 students in Platform-Based Programming (React, Express, Sequelize, PostgreSQL) and Algorithm
+                Lab (Java OOP), conducting code reviews and lab evaluations.
+              </p>
+              <div class="project-tags">
+                <span class="tag">React.js</span>
+                <span class="tag">Express.js</span>
+                <span class="tag">Java OOP</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+              <div class="project-card-actions">
+                <button class="btn-card-action project-view-btn" data-project-trigger="platform">
+                  <span>View Teaching Experience</span>
+                  <i data-lucide="arrow-up-right"></i>
+                </button>
+              </div>
             </div>
           </article>
 
           <!-- Card 3: Enterprise Certifications & Training -->
-          <article class="project-card reveal reveal-delay-3">
+          <article class="project-card reveal reveal-delay-3" data-id="cloud">
             <div class="project-thumb-wrap">
-              <img src="assets/images/project-cloud.jpg" alt="Enterprise Training & Certifications" class="project-thumb">
-              <div class="project-overlay-badge">CERTIFICATIONS · ITHB CRC</div>
+              <img src="assets/images/project-cloud.jpg" alt="Enterprise Training & Certifications"
+                class="project-thumb">
+              <div class="project-overlay-badge">
+                <i data-lucide="award"></i>
+                <span>CERTIFICATIONS · ITHB CRC</span>
+              </div>
             </div>
             <div class="project-details">
+              <div class="project-meta">
+                <span class="project-year">2025 – 2026</span>
+                <span class="project-cat">Cloud Architecture &amp; ERP</span>
+              </div>
               <h3 class="project-title">AWS &amp; SAP Enterprise Training</h3>
-              <div class="project-category">AWS Cloud Foundations (ACF) &amp; SAP S/4HANA Configuration</div>
-              <div class="project-year">— 2025 – 2026 —</div>
-              <button class="btn-card-action" data-project-trigger="cloud">
-                <span>View Training &amp; Certifications</span>
-                <i class="fa-solid fa-arrow-right-long"></i>
-              </button>
+              <p class="project-desc">
+                Completed AWS Academy Cloud Foundations (ACF), SAP Business Suite end-to-end workflows, SAP S/4HANA
+                Configuration, and Certiplus professional honors.
+              </p>
+              <div class="project-tags">
+                <span class="tag">AWS ACF</span>
+                <span class="tag">SAP S/4HANA</span>
+                <span class="tag">ERP Workflows</span>
+                <span class="tag">Certiplus</span>
+              </div>
+              <div class="project-card-actions">
+                <button class="btn-card-action project-view-btn" data-project-trigger="cloud">
+                  <span>View Training &amp; Certs</span>
+                  <i data-lucide="arrow-up-right"></i>
+                </button>
+              </div>
             </div>
           </article>
+
         </div>
       </div>
     </section>
@@ -245,9 +783,10 @@
     <!-- ==========================================================================
          WHAT I DO & ACHIEVEMENTS SECTION (SPLIT 2-COLUMN LUXURY)
          ========================================================================== -->
-    <section id="expertise" class="expertise-section">
-      <div class="container">
+    <section class="section expertise-section" id="expertise">
+      <div class="section-container">
         <div class="expertise-grid">
+
           <!-- Left Column: What I Do -->
           <div class="expertise-left reveal">
             <h2 class="column-title">WHAT I DO</h2>
@@ -256,7 +795,7 @@
               <!-- Service 1 -->
               <div class="service-item">
                 <div class="service-icon-circle">
-                  <i class="fa-solid fa-list-check"></i>
+                  <i data-lucide="list-checks"></i>
                 </div>
                 <div class="service-info">
                   <h3>Software Quality Assurance</h3>
@@ -268,7 +807,7 @@
               <!-- Service 2 -->
               <div class="service-item">
                 <div class="service-icon-circle">
-                  <i class="fa-solid fa-network-wired"></i>
+                  <i data-lucide="network"></i>
                 </div>
                 <div class="service-info">
                   <h3>API &amp; Workflow Testing</h3>
@@ -280,7 +819,7 @@
               <!-- Service 3 -->
               <div class="service-item">
                 <div class="service-icon-circle">
-                  <i class="fa-solid fa-code"></i>
+                  <i data-lucide="code-2"></i>
                 </div>
                 <div class="service-info">
                   <h3>Full-Stack Development</h3>
@@ -292,7 +831,7 @@
               <!-- Service 4 -->
               <div class="service-item">
                 <div class="service-icon-circle">
-                  <i class="fa-solid fa-bug-slash"></i>
+                  <i data-lucide="bug-off"></i>
                 </div>
                 <div class="service-info">
                   <h3>Defect Lifecycle Management</h3>
@@ -303,14 +842,14 @@
             </div>
           </div>
 
-          <!-- Vertical Divider with Star -->
+          <!-- Vertical Center Divider with Star -->
           <div class="expertise-divider">
             <div class="expertise-divider-line"></div>
             <div class="expertise-divider-sparkle">✦</div>
             <div class="expertise-divider-line"></div>
           </div>
 
-          <!-- Right Column: Achievements & Certifications -->
+          <!-- Right Column: Achievements & Honors -->
           <div id="achievements" class="expertise-right reveal reveal-delay-2">
             <h2 class="column-title">ACHIEVEMENTS &amp; HONORS</h2>
 
@@ -325,7 +864,8 @@
                   <p>Completed professional cloud architecture, security, and infrastructure foundations certified by
                     AWS Academy at ITHB Career Resource Center.</p>
                   <div class="achievement-meta">
-                    NOVEMBER 2025 · <a href="https://www.credly.com/badges/012be65d-c3ba-47c6-b69d-a2aee50e8bb6" target="_blank" rel="noopener noreferrer" style="color: var(--gold-dark); text-decoration: underline; font-weight: 600;">VERIFY CREDLY BADGE ↗</a>
+                    NOVEMBER 2025 · <a href="https://www.credly.com/badges/012be65d-c3ba-47c6-b69d-a2aee50e8bb6"
+                      target="_blank" rel="noopener noreferrer">VERIFY CREDLY BADGE ↗</a>
                   </div>
                 </div>
               </div>
@@ -337,9 +877,12 @@
                 </div>
                 <div class="achievement-info">
                   <h3>SAP Business Suite &amp; S/4HANA Program</h3>
-                  <p>Certified in Exploring End-to-End Business Processes in SAP Business Suite, along with SAP S/4HANA Configuration and Global Bike enterprise simulation.</p>
+                  <p>Certified in Exploring End-to-End Business Processes in SAP Business Suite, along with SAP S/4HANA
+                    Configuration and Global Bike enterprise simulation.</p>
                   <div class="achievement-meta">
-                    SAP LEARNING &amp; ITHB · <a href="https://badger.learning.sap.com/verify/xyvid-comyv-mokyl-mogom-casav" target="_blank" rel="noopener noreferrer" style="color: var(--gold-dark); text-decoration: underline; font-weight: 600;">VERIFY SAP BADGE ↗</a>
+                    SAP LEARNING &amp; ITHB · <a
+                      href="https://badger.learning.sap.com/verify/xyvid-comyv-mokyl-mogom-casav" target="_blank"
+                      rel="noopener noreferrer">VERIFY SAP BADGE ↗</a>
                   </div>
                 </div>
               </div>
@@ -364,71 +907,91 @@
                 </div>
                 <div class="achievement-info">
                   <h3>Academic Honors &amp; Assistant Lecturer</h3>
-                  <p>Sarjana Informatika with 3.7 GPA. Appointed Assistant Lecturer for Platform-Based Programming &amp;
-                    Algorithm Lab mentoring 50+ students.</p>
+                  <p>Sarjana Informatika with 3.70 GPA. Appointed Assistant Lecturer for Platform-Based Programming
+                    &amp; Algorithm Lab mentoring 50+ students.</p>
                   <div class="achievement-meta">ITHB BANDUNG · 2025 – 2026</div>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         TECH STACK MINIMALIST LUXURY RIBBON
+         TECH STACK / SKILLS SECTION
          ========================================================================== -->
-    <section id="tech-stack" class="tech-banner-section">
-      <div class="container">
-        <h3 class="tech-banner-title">PROFICIENT IN ENTERPRISE TECHNOLOGIES &amp; METHODOLOGIES</h3>
+    <section id="tech-stack" class="section tech-banner-section">
+      <div class="section-container">
+        <div class="section-header-centered reveal">
+          <span class="badge-tag">ENTERPRISE TOOLING</span>
+          <h3 class="editorial-headline" style="font-size: clamp(1.8rem, 3.5vw, 2.6rem);">
+            PROFICIENT IN ENTERPRISE <span class="serif-italic">Technologies</span> &amp; <strong>Methodologies</strong>
+          </h3>
+          <p class="editorial-subtitle">A balanced fusion of software testing frameworks, modern full-stack libraries,
+            cloud infrastructure, and agile systems.</p>
+        </div>
 
-        <div class="tech-badges-grid">
+        <div class="tech-badges-grid reveal reveal-delay-1">
           <div class="tech-badge-item">
-            <span>POSTMAN</span>
+            <span class="tech-icon-small"><i data-lucide="send"></i></span>
+            <span class="tech-name">POSTMAN</span>
             <span class="tech-sub-label">API Testing</span>
           </div>
           <div class="tech-badge-item">
-            <span>PLAYWRIGHT</span>
+            <span class="tech-icon-small"><i data-lucide="play-circle"></i></span>
+            <span class="tech-name">PLAYWRIGHT</span>
             <span class="tech-sub-label">Automation</span>
           </div>
           <div class="tech-badge-item">
-            <span>REACT.JS</span>
+            <span class="tech-icon-small"><i data-lucide="atom"></i></span>
+            <span class="tech-name">REACT.JS</span>
             <span class="tech-sub-label">Frontend</span>
           </div>
           <div class="tech-badge-item">
-            <span>NODE &amp; EXPRESS</span>
+            <span class="tech-icon-small"><i data-lucide="server"></i></span>
+            <span class="tech-name">NODE &amp; EXPRESS</span>
             <span class="tech-sub-label">REST APIs</span>
           </div>
           <div class="tech-badge-item">
-            <span>PYTHON</span>
+            <span class="tech-icon-small"><i data-lucide="terminal"></i></span>
+            <span class="tech-name">PYTHON</span>
             <span class="tech-sub-label">Automation &amp; Data</span>
           </div>
           <div class="tech-badge-item">
-            <span>JAVA</span>
+            <span class="tech-icon-small"><i data-lucide="coffee"></i></span>
+            <span class="tech-name">JAVA</span>
             <span class="tech-sub-label">OOP &amp; Core</span>
           </div>
           <div class="tech-badge-item">
-            <span>POSTGRESQL</span>
+            <span class="tech-icon-small"><i data-lucide="database"></i></span>
+            <span class="tech-name">POSTGRESQL</span>
             <span class="tech-sub-label">Database</span>
           </div>
           <div class="tech-badge-item">
-            <span>MYSQL &amp; SUPABASE</span>
+            <span class="tech-icon-small"><i data-lucide="hard-drive"></i></span>
+            <span class="tech-name">MYSQL &amp; SUPABASE</span>
             <span class="tech-sub-label">Relational Data</span>
           </div>
           <div class="tech-badge-item">
-            <span>AWS CLOUD</span>
+            <span class="tech-icon-small"><i data-lucide="cloud"></i></span>
+            <span class="tech-name">AWS CLOUD</span>
             <span class="tech-sub-label">Infrastructure</span>
           </div>
           <div class="tech-badge-item">
-            <span>SAP S/4HANA</span>
+            <span class="tech-icon-small"><i data-lucide="layers"></i></span>
+            <span class="tech-name">SAP S/4HANA</span>
             <span class="tech-sub-label">Enterprise ERP</span>
           </div>
           <div class="tech-badge-item">
-            <span>JIRA &amp; TRELLO</span>
+            <span class="tech-icon-small"><i data-lucide="check-square"></i></span>
+            <span class="tech-name">JIRA &amp; TRELLO</span>
             <span class="tech-sub-label">Agile &amp; QA</span>
           </div>
           <div class="tech-badge-item">
-            <span>GIT &amp; GITHUB</span>
+            <span class="tech-icon-small"><img src="assets/images/github-luxury.svg" alt="GitHub" style="width: 18px; height: 18px;"></span>
+            <span class="tech-name">GIT &amp; GITHUB</span>
             <span class="tech-sub-label">Version Control</span>
           </div>
         </div>
@@ -436,75 +999,237 @@
     </section>
 
     <!-- ==========================================================================
-         LET'S CONNECT / FOOTER SECTION (BURGUNDY LUXURY)
+         OFFICIAL PORTFOLIO DOCUMENTS & CREDENTIALS HUB
          ========================================================================== -->
-    <section id="connect" class="connect-section">
-      <div class="container">
-        <div class="connect-grid">
-          <!-- Left: Framed Portrait + Script Tag -->
-          <div class="connect-avatar-block reveal">
-            <div class="connect-avatar-frame">
-              <img src="assets/images/kezia-portrait.jpg" alt="Kezia Natalia" class="connect-avatar-img">
-            </div>
-            <div class="connect-script-tag">Let's Connect</div>
-          </div>
+    <section class="section cv-download-section" id="documents-hub">
+      <div class="section-container">
+        <div class="section-header-centered reveal">
+          <span class="badge-tag">VERIFIED EVIDENCE &amp; DOCUMENTS</span>
+          <h2 class="editorial-headline">
+            OFFICIAL PORTFOLIO <span class="serif-italic">Documents</span> &amp; <strong>Repository</strong>
+          </h2>
+          <p class="editorial-subtitle">Preview or download the authentic CV, Software Quality Assurance internship
+            portfolio, and university web application portfolios.</p>
+        </div>
 
-          <!-- Middle: Contact Details -->
-          <div class="connect-info-block reveal reveal-delay-1">
-            <h3 class="connect-heading">LET'S CREATE SOMETHING EXTRAORDINARY</h3>
+        <div class="cv-grid-hub">
 
-            <div class="contact-list">
-              <!-- Email -->
-              <div class="contact-row">
-                <div class="contact-icon-box">
-                  <i class="fa-regular fa-envelope"></i>
+          <!-- Top Row: 2 Primary Documents (CV & Portofolio QA) -->
+          <div class="cv-hub-top-row">
+
+            <!-- Document Card 1: Official CV -->
+            <div class="cv-card-banner cv-card-compact reveal reveal-delay-1">
+              <div class="cv-banner-left">
+                <div class="cv-icon-box">
+                  <i data-lucide="file-text"></i>
                 </div>
-                <a href="mailto:kezianatalia2204@gmail.com">kezianatalia2204@gmail.com</a>
-                <button class="copy-btn" data-copy="kezianatalia2204@gmail.com" title="Copy Email">Copy</button>
+                <div class="cv-banner-text">
+                  <span class="cv-badge-type">OFFICIAL RESUME</span>
+                  <h3>Curriculum Vitae — Kezia Natalia Permana</h3>
+                  <p>Official verified CV document detailing SQA internship experience, teaching assistantship, academic
+                    credentials, and enterprise certifications.</p>
+                </div>
               </div>
 
-              <!-- Phone -->
-              <div class="contact-row">
-                <div class="contact-icon-box">
-                  <i class="fa-solid fa-phone"></i>
-                </div>
-                <a href="tel:+6283890559622">(+62) 838 9055 9622</a>
-                <button class="copy-btn" data-copy="+6283890559622" title="Copy Phone">Copy</button>
-              </div>
-
-              <!-- Location -->
-              <div class="contact-row">
-                <div class="contact-icon-box">
-                  <i class="fa-solid fa-location-dot"></i>
-                </div>
-                <span>Bandung, Indonesia (Open to Remote Worldwide)</span>
-              </div>
-
-              <!-- LinkedIn -->
-              <div class="contact-row">
-                <div class="contact-icon-box">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                </div>
-                <a href="https://linkedin.com/in/kezianataliapermana" target="_blank" rel="noopener noreferrer">Kezia
-                  Natalia Permana</a>
-                <span style="font-size: 0.7rem; color: var(--gold-bright); margin-left: auto;">↗</span>
-              </div>
-
-              <!-- GitHub -->
-              <div class="contact-row">
-                <div class="contact-icon-box">
-                  <i class="fa-brands fa-github"></i>
-                </div>
-                <a href="https://github.com/KeziaNatalia22" target="_blank"
-                  rel="noopener noreferrer">github.com/KeziaNatalia22</a>
-                <span style="font-size: 0.7rem; color: var(--gold-bright); margin-left: auto;">↗</span>
+              <div class="cv-banner-actions">
+                <a href="assets/kezia-natalia-cv.pdf" target="_blank" class="btn btn-outline" id="btn-view-cv">
+                  <i data-lucide="eye"></i>
+                  <span>Preview Document</span>
+                </a>
+                <a href="assets/kezia-natalia-cv.pdf" download="Kezia_Natalia_Permana_CV.pdf" class="btn btn-primary"
+                  id="btn-download-pdf">
+                  <i data-lucide="download"></i>
+                  <span>Download PDF</span>
+                </a>
               </div>
             </div>
+
+            <!-- Document Card 2: Portofolio QA (Magang) -->
+            <div class="cv-card-banner cv-card-compact reveal reveal-delay-2">
+              <div class="cv-banner-left">
+                <div class="cv-icon-box">
+                  <i data-lucide="file-check"></i>
+                </div>
+                <div class="cv-banner-text">
+                  <span class="cv-badge-type">INTERNSHIP EVIDENCE</span>
+                  <h3>Portofolio QA — Software Quality Assurance</h3>
+                  <p>Complete evidence portfolio of SQA internship at EFG Consulting covering 50+ validated tickets, 23
+                    logged defects, Postman API workflows, and TMS UAT testing.</p>
+                </div>
+              </div>
+
+              <div class="cv-banner-actions">
+                <a href="assets/Portofolio QA.pdf" target="_blank" class="btn btn-outline" id="btn-view-qa">
+                  <i data-lucide="eye"></i>
+                  <span>Preview Portfolio</span>
+                </a>
+                <a href="assets/Portofolio QA.pdf" download="Portofolio_QA_Kezia_Natalia.pdf" class="btn btn-primary"
+                  id="btn-download-qa">
+                  <i data-lucide="download"></i>
+                  <span>Download PDF</span>
+                </a>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Right: Quote Box -->
-          <div class="connect-quote-block reveal reveal-delay-2">
-            <div class="quote-box">
+          <!-- Bottom Row: Wide Card for Portofolio Proyek Web & Aplikasi (Universitas) -->
+          <div class="cv-card-banner cv-card-wide reveal reveal-delay-3">
+            <div class="cv-wide-inner">
+              <div class="cv-wide-left">
+                <div class="cv-icon-box">
+                  <i data-lucide="file-code"></i>
+                </div>
+                <div class="cv-banner-text">
+                  <span class="cv-badge-type">ACADEMIC &amp; DEV PROJECTS</span>
+                  <h3>Portofolio Proyek Web &amp; Aplikasi (Universitas)</h3>
+                  <p>Comprehensive portfolio document showcasing full-stack web and platform applications built and
+                    mentored during computer science studies at ITHB.</p>
+                </div>
+              </div>
+
+              <div class="cv-banner-actions cv-wide-actions">
+                <a href="assets/Portofolio - Kezia Natalia Permana.pdf" target="_blank" class="btn btn-outline"
+                  id="btn-view-dev">
+                  <i data-lucide="eye"></i>
+                  <span>Preview Portfolio</span>
+                </a>
+                <a href="assets/Portofolio - Kezia Natalia Permana.pdf" download="Portofolio_Web_Kezia_Natalia.pdf"
+                  class="btn btn-primary" id="btn-download-dev">
+                  <i data-lucide="download"></i>
+                  <span>Download PDF</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         LET'S CONNECT / CONTACT SECTION (BURGUNDY LUXURY)
+         ========================================================================== -->
+    <section id="connect" class="section connect-section">
+      <div class="section-container">
+        <div class="section-grid-2col">
+
+          <!-- Left Side: Editorial & Contact Details -->
+          <div class="contact-left reveal">
+            <span class="badge-tag">LET'S CONNECT</span>
+            <h2 class="editorial-headline text-light">
+              READY TO BUILD <span class="serif-italic">reliable</span> <strong>software?</strong>
+            </h2>
+            <p class="contact-p">
+              Whether you are looking for a dedicated <strong>Software Quality Assurance Engineer</strong>, a skilled
+              <strong>Full-Stack Developer</strong>, or technical talent for your enterprise systems, feel free to reach
+              out.
+            </p>
+
+            <div class="contact-methods">
+
+              <div class="contact-method-card" data-copy="kezianatalia2204@gmail.com">
+                <div class="cm-icon"><i data-lucide="mail"></i></div>
+                <div class="cm-info">
+                  <span class="cm-label">Email Address</span>
+                  <span class="cm-val">kezianatalia2204@gmail.com</span>
+                </div>
+                <button class="cm-copy-btn" title="Copy email">
+                  <i data-lucide="copy"></i>
+                </button>
+              </div>
+
+              <a href="https://wa.me/6283890559622?text=Halo%20Kezia,%20saya%20tertarik%20untuk%20berdiskusi%20tentang%20peluang%20kerja%20sama."
+                target="_blank" class="contact-method-card link-card">
+                <div class="cm-icon"><i data-lucide="message-circle"></i></div>
+                <div class="cm-info">
+                  <span class="cm-label">WhatsApp Direct</span>
+                  <span class="cm-val">(+62) 838 9055 9622</span>
+                </div>
+                <div class="cm-arrow">
+                  <i data-lucide="arrow-up-right"></i>
+                </div>
+              </a>
+
+              <a href="https://linkedin.com/in/kezianataliapermana" target="_blank"
+                class="contact-method-card link-card" title="Open LinkedIn Profile">
+                <div class="cm-icon"><img src="assets/images/linkedin-luxury.svg" alt="LinkedIn" class="cm-custom-logo"></div>
+                <div class="cm-info">
+                  <span class="cm-label">LinkedIn Profile</span>
+                  <span class="cm-val">Kezia Natalia Permana</span>
+                </div>
+                <div class="cm-arrow">
+                  <i data-lucide="arrow-up-right"></i>
+                </div>
+              </a>
+
+              <a href="https://github.com/KeziaNatalia22" target="_blank" class="contact-method-card link-card"
+                title="Open GitHub Profile">
+                <div class="cm-icon"><img src="assets/images/github-luxury.svg" alt="GitHub" class="cm-custom-logo"></div>
+                <div class="cm-info">
+                  <span class="cm-label">GitHub Repository</span>
+                  <span class="cm-val">github.com/KeziaNatalia22</span>
+                </div>
+                <div class="cm-arrow">
+                  <i data-lucide="arrow-up-right"></i>
+                </div>
+              </a>
+
+              <div class="contact-method-card">
+                <div class="cm-icon"><i data-lucide="map-pin"></i></div>
+                <div class="cm-info">
+                  <span class="cm-label">Location Base</span>
+                  <span class="cm-val">Bandung, Indonesia (Open to Remote Worldwide)</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Side: Form + Luxury Manifesto Quote -->
+          <div class="contact-right reveal reveal-delay-2">
+            <div class="contact-form-card">
+              <h3 class="form-title">Send a Direct Message</h3>
+              <p class="form-sub">Fill out the quick form below to connect instantly via email or WhatsApp.</p>
+
+              <form id="contact-form" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                  <label for="form-name">Your Name</label>
+                  <input type="text" id="form-name" placeholder="e.g. Sarah Jenkins" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-email">Your Email / WhatsApp</label>
+                  <input type="text" id="form-email" placeholder="e.g. sarah@organization.org or +62..." required>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-subject">Subject / Inquiry Type</label>
+                  <select id="form-subject" required>
+                    <option value="Software Quality Assurance Opportunity">Software Quality Assurance Opportunity
+                    </option>
+                    <option value="Full-Stack / Platform Development">Full-Stack / Platform Development</option>
+                    <option value="Contract / Freelance Testing Project">Contract / Freelance Testing Project</option>
+                    <option value="Academic / Tech Collaboration">Academic / Tech Collaboration</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-message">Message</label>
+                  <textarea id="form-message" rows="4" placeholder="Describe your project, timeline, or objectives..."
+                    required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" id="btn-submit-msg">
+                  <span>Send Message via WhatsApp</span>
+                  <i data-lucide="send" class="btn-icon"></i>
+                </button>
+              </form>
+            </div>
+
+            <!-- Manifesto Quote Box -->
+            <div class="quote-box" style="margin-top: 2rem;">
               <span class="quote-mark quote-mark-start">“</span>
               <p class="quote-text">
                 Quality is never an accident; it is always the result of intelligent effort, rigorous verification, and
@@ -514,16 +1239,43 @@
               <span class="quote-author">— QUALITY ENGINEERING MANIFESTO</span>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Bottom Ribbon -->
-    <div class="bottom-ribbon">
-      <div class="bottom-ribbon-text">✦ PRECISION · INTEGRITY · AUTOMATION · EXCELLENCE ✦</div>
-      <div class="bottom-copyright">Designed &amp; Developed for Kezia Natalia Permana · &copy; 2026. All rights
-        reserved.</div>
-    </div>
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer class="site-footer">
+      <div class="section-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="footer-name">KEZIA NATALIA PERMANA</span>
+            <p class="footer-tagline">Software Quality Assurance • Platform Developer • Enterprise Systems</p>
+          </div>
+          <div class="footer-nav">
+            <a href="#metrics">Metrics</a>
+            <a href="#experience">Experience</a>
+            <a href="#featured-work">Portfolio</a>
+            <a href="#expertise">What I Do</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#tech-stack">Tech Stack</a>
+            <a href="#documents-hub">Documents</a>
+            <a href="#connect">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="bottom-ribbon-text">✦ PRECISION · INTEGRITY · AUTOMATION · EXCELLENCE ✦</div>
+          <p class="bottom-copyright">&copy; 2026 Kezia Natalia Permana. All rights reserved.</p>
+          <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">
+            <span>Back to top</span>
+            <i data-lucide="arrow-up"></i>
+          </button>
+        </div>
+      </div>
+    </footer>
+
   </main>
 
   <!-- ==========================================================================
@@ -542,6 +1294,9 @@
       </div>
 
       <div class="modal-body">
+        <!-- Direct Evidence Action Banner inside Modal -->
+        <div id="modalEvidence" class="modal-evidence-container"></div>
+
         <div id="modalMetrics" class="modal-metric-grid"></div>
 
         <div class="modal-tabs">

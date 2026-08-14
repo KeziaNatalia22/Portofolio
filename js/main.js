@@ -1,28 +1,49 @@
 /**
- * KEZIA NATALIA PERMANA - PORTFOLIO INTERACTION ENGINE
- * Luxury Micro-Interactions, Case Study Modals, Toast Alerts & Animations
+ * KEZIA NATALIA PERMANA — LUXURY EDITORIAL PORTFOLIO ENGINE
+ * Dynamic Interactions, Metric Counters, ScrollSpy, Lucide Icon Activation,
+ * Project Modals with Evidence Documents, Ambient Tracking & Toast System.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initCustomCursor();
-  initHeaderScroll();
+  // 1. Initialize Lucide Icons
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
+  // 2. Initialize Custom Luxury Cursor & Ambient Glow
+  initLuxuryCursorAndGlow();
+
+  // 3. Initialize Sticky Navigation & ScrollSpy
+  initScrollSpy();
+
+  // 4. Initialize Animated Number Counters
+  initMetricCounters();
+
+  // 5. Initialize Scroll Reveal Animations
   initScrollAnimations();
+
+  // 6. Initialize Project Modals & Authentic Data
   initProjectModals();
+
+  // 7. Initialize Clipboard Copy & Toast Notifications
   initClipboardAndContact();
-  initMobileMenu();
 });
 
 /* ==========================================================================
-   1. CUSTOM LUXURY CURSOR
+   1. LUXURY CUSTOM CURSOR & AMBIENT GLOW TRACKER
    ========================================================================== */
-function initCustomCursor() {
+function initLuxuryCursorAndGlow() {
   const cursor = document.querySelector('.custom-cursor');
   const follower = document.querySelector('.custom-cursor-follower');
+  const glow1 = document.querySelector('.glow-1');
+  const glow2 = document.querySelector('.glow-2');
 
   if (!cursor || !follower) return;
 
-  let mouseX = 0, mouseY = 0;
-  let followerX = 0, followerY = 0;
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let followerX = mouseX;
+  let followerY = mouseY;
 
   window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -30,65 +51,140 @@ function initCustomCursor() {
 
     cursor.style.left = `${mouseX}px`;
     cursor.style.top = `${mouseY}px`;
+
+    // Subtle parallax shift on ambient glows
+    if (glow1) {
+      const shiftX = (mouseX / window.innerWidth - 0.5) * 40;
+      const shiftY = (mouseY / window.innerHeight - 0.5) * 40;
+      glow1.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
+    }
+    if (glow2) {
+      const shiftX = (mouseX / window.innerWidth - 0.5) * -50;
+      const shiftY = (mouseY / window.innerHeight - 0.5) * -50;
+      glow2.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
+    }
   });
 
   function renderFollower() {
-    followerX += (mouseX - followerX) * 0.18;
-    followerY += (mouseY - followerY) * 0.18;
+    followerX += (mouseX - followerX) * 0.15;
+    followerY += (mouseY - followerY) * 0.15;
 
     follower.style.left = `${followerX}px`;
     follower.style.top = `${followerY}px`;
 
     requestAnimationFrame(renderFollower);
   }
-  requestAnimationFrame(renderFollower);
+  renderFollower();
 
-  // Hover states for interactive elements
-  const interactiveElements = document.querySelectorAll('a, button, .project-card, .service-item, .achievement-item, .tech-badge-item, input, textarea');
-  interactiveElements.forEach((el) => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('hovered'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('hovered'));
+  // Hover detection on interactive elements
+  const hoverTargets = document.querySelectorAll('a, button, input, select, textarea, .metric-card, .exp-card, .project-card, .service-item, .achievement-item, .tech-badge-item, .contact-method-card, .social-item');
+  hoverTargets.forEach((target) => {
+    target.addEventListener('mouseenter', () => document.body.classList.add('hovered'));
+    target.addEventListener('mouseleave', () => document.body.classList.remove('hovered'));
   });
 }
 
 /* ==========================================================================
-   2. HEADER SCROLL & ACTIVE LINK HIGHLIGHTING
+   2. STICKY NAV & SCROLLSPY
    ========================================================================== */
-function initHeaderScroll() {
-  const header = document.querySelector('.site-header');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
+function initScrollSpy() {
+  const navLinks = document.querySelectorAll('.sticky-nav .nav-item');
+  const sections = document.querySelectorAll('section[id], nav[id], div[id="achievements"]');
 
   window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY;
+    let current = '';
+    const scrollPosition = window.scrollY + 200;
 
-    // Header blur state
-    if (scrollPos > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-
-    // Active navigation highlight
     sections.forEach((section) => {
-      const top = section.offsetTop - 150;
-      const height = section.offsetHeight;
-      const id = section.getAttribute('id');
-
-      if (scrollPos >= top && scrollPos < top + height) {
-        navLinks.forEach((link) => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
       }
     });
-  });
+
+    if (current) {
+      navLinks.forEach((link) => {
+        link.classList.remove('active');
+        if (link.getAttribute('data-nav') === current) {
+          link.classList.add('active');
+        }
+      });
+    }
+  }, { passive: true });
 }
 
 /* ==========================================================================
-   3. SCROLL-TRIGGERED REVEAL ANIMATIONS
+   3. ANIMATED METRIC COUNTERS
+   ========================================================================== */
+function initMetricCounters() {
+  const metricCards = document.querySelectorAll('.metric-number');
+  let animated = false;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          metricCards.forEach((card) => {
+            const target = parseFloat(card.getAttribute('data-target'));
+            const format = card.getAttribute('data-format') || 'integer';
+            animateCounter(card, target, format);
+          });
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
+
+  const metricsSection = document.getElementById('metrics');
+  if (metricsSection) {
+    observer.observe(metricsSection);
+  }
+
+  function animateCounter(el, target, format) {
+    const duration = 1800;
+    const start = 0;
+    const startTime = performance.now();
+
+    function updateCount(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeProgress = easeOutQuart(progress);
+      const current = start + (target - start) * easeProgress;
+
+      if (format === 'decimal') {
+        el.textContent = current.toFixed(2);
+      } else if (format === 'raw') {
+        const rounded = Math.floor(current);
+        el.textContent = target === 50 ? `${rounded}+` : rounded;
+      } else {
+        el.textContent = Math.floor(current);
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      } else {
+        if (format === 'decimal') {
+          el.textContent = target.toFixed(2);
+        } else if (target === 50) {
+          el.textContent = '50+';
+        } else {
+          el.textContent = target;
+        }
+      }
+    }
+
+    requestAnimationFrame(updateCount);
+  }
+
+  function easeOutQuart(x) {
+    return 1 - Math.pow(1 - x, 4);
+  }
+}
+
+/* ==========================================================================
+   4. SCROLL REVEAL ANIMATIONS
    ========================================================================== */
 function initScrollAnimations() {
   const revealElements = document.querySelectorAll('.reveal');
@@ -98,13 +194,11 @@ function initScrollAnimations() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          // Once animated, optionally unobserve for performance
-          // observer.unobserve(entry.target);
         }
       });
     },
     {
-      threshold: 0.12,
+      threshold: 0.1,
       rootMargin: '0px 0px -40px 0px'
     }
   );
@@ -113,11 +207,11 @@ function initScrollAnimations() {
 }
 
 /* ==========================================================================
-   4. CASE STUDY MODAL SYSTEM & AUTHENTIC CV DATA
+   5. CASE STUDY MODAL SYSTEM & AUTHENTIC CV DATA WITH EVIDENCE
    ========================================================================== */
 const projectData = {
   tms: {
-    tag: 'EFG Consulting · Australia / Remote · May 2026 – Aug 2026',
+    tag: 'EFG Consulting · Bali / Remote · May 2026 – Aug 2026',
     title: 'Software Quality Assurance Internship',
     subtitle: 'Transportation Management System (TMS) & Quoting Tools Quality Assurance',
     tabLabels: ['Internship Overview', 'QA & Testing Strategy', 'Defects & Resolutions', 'Tools & Technologies'],
@@ -126,7 +220,7 @@ const projectData = {
       { num: '23', label: 'Software Defects Identified & Logged' },
       { num: '4', label: 'User Roles Tested (Client, Sales, GM, Ops)' }
     ],
-    overview: `Performed professional Quality Assurance for an enterprise Transportation Management System (TMS) and Quoting Tools at EFG Consulting, an Australia-based consulting and remote talent solutions company. Ensured high software reliability and business requirement validation across multiple stakeholder roles before production releases.`,
+    overview: `Performed professional Quality Assurance for an enterprise Transportation Management System (TMS) and Quoting Tools at EFG Consulting, a Bali-based consulting and remote talent solutions company. Ensured high software reliability and business requirement validation across multiple stakeholder roles before production releases.`,
     testingStrategy: [
       'Executed functional, regression, and User Acceptance Testing (UAT) for web-based enterprise applications to ensure product quality before release.',
       'Completed 50+ assigned testing tickets, validating new features, enhancements, and bug fixes according to detailed business requirements.',
@@ -148,7 +242,7 @@ const projectData = {
     metrics: [
       { num: '59', label: 'Total Students Guided (35 Web + 24 Java)' },
       { num: '2', label: 'Academic Semesters as Assistant Lecturer' },
-      { num: '3.7', label: 'Sarjana Informatika GPA at ITHB' }
+      { num: '3.70', label: 'Sarjana Informatika GPA at ITHB' }
     ],
     overview: `Appointed as Assistant Lecturer at Institut Teknologi Harapan Bangsa (ITHB) for two fundamental computer science courses: Platform-Based Programming (Feb 2026 – May 2026) and Algorithm Lab (Aug 2025 – Nov 2025). Guided students in software engineering principles, full-stack architecture, and algorithmic logic.`,
     testingStrategy: [
@@ -197,10 +291,10 @@ function initProjectModals() {
   const closeBtn = modalBackdrop.querySelector('.modal-close-btn');
   const triggerBtns = document.querySelectorAll('[data-project-trigger]');
 
-  // Modal elements to populate
   const modalTag = document.getElementById('modalTag');
   const modalTitle = document.getElementById('modalTitle');
   const modalSubtitle = document.getElementById('modalSubtitle');
+  const modalEvidence = document.getElementById('modalEvidence');
   const modalMetrics = document.getElementById('modalMetrics');
   const modalOverview = document.getElementById('modalOverview');
   const modalTestingList = document.getElementById('modalTestingList');
@@ -208,7 +302,6 @@ function initProjectModals() {
   const modalTechChips = document.getElementById('modalTechChips');
   const tabBtns = document.querySelectorAll('.modal-tab-btn');
 
-  // Open modal handler
   triggerBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -220,7 +313,28 @@ function initProjectModals() {
       modalTitle.textContent = data.title;
       modalSubtitle.textContent = data.subtitle;
 
-      // Update tab button labels dynamically if provided
+      // Render Evidence Banner
+      if (modalEvidence && data.evidenceDoc) {
+        const isPdf = data.evidenceType === 'pdf';
+        modalEvidence.innerHTML = `
+          <div class="modal-evidence-banner">
+            <div class="modal-evidence-icon">
+              <i data-lucide="${isPdf ? 'file-check-2' : 'award'}"></i>
+            </div>
+            <div class="modal-evidence-info">
+              <span class="modal-evidence-tag">VERIFIED PORTFOLIO EVIDENCE</span>
+              <span class="modal-evidence-name">${data.evidenceTitle}</span>
+            </div>
+            <a href="${data.evidenceDoc}" target="_blank" rel="noopener noreferrer" class="modal-evidence-action-btn">
+              <i data-lucide="external-link"></i>
+              <span>${isPdf ? 'Open Portfolio (PDF)' : 'Verify Credential'}</span>
+            </a>
+          </div>
+        `;
+      } else if (modalEvidence) {
+        modalEvidence.innerHTML = '';
+      }
+
       if (data.tabLabels && data.tabLabels.length === 4) {
         tabBtns[0].textContent = data.tabLabels[0];
         tabBtns[1].textContent = data.tabLabels[1];
@@ -228,7 +342,6 @@ function initProjectModals() {
         tabBtns[3].textContent = data.tabLabels[3];
       }
 
-      // Populate metrics
       modalMetrics.innerHTML = data.metrics.map(m => `
         <div class="modal-metric-card">
           <div class="modal-metric-num">${m.num}</div>
@@ -236,65 +349,55 @@ function initProjectModals() {
         </div>
       `).join('');
 
-      // Helper to convert URLs into clickable links with target="_blank"
       function renderModalTextWithLinks(text) {
         if (!text) return '';
         const urlRegex = /(https?:\/\/[^\s\)\>]+)/g;
         return text.replace(urlRegex, (url) => {
           let label = url;
           if (url.includes('credly.com')) {
-            label = `Verify on Credly <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem; margin-left: 0.2rem;"></i>`;
+            label = `Verify Credly Badge ↗`;
           } else if (url.includes('sap.com')) {
-            label = `Verify SAP Credential <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem; margin-left: 0.2rem;"></i>`;
-          } else {
-            label = `${url} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem; margin-left: 0.2rem;"></i>`;
+            label = `Verify SAP Credential ↗`;
           }
-          return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color: var(--bg-burgundy-main); background: rgba(197, 160, 89, 0.18); padding: 0.18rem 0.55rem; border-radius: 4px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; display: inline-flex; align-items: center; gap: 0.25rem; transition: var(--transition-fast);">${label}</a>`;
+          return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color: var(--bg-burgundy-main); background: rgba(197, 160, 89, 0.18); padding: 0.18rem 0.55rem; border-radius: 4px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; display: inline-flex; align-items: center; gap: 0.25rem;">${label}</a>`;
         });
       }
 
-      // Populate overview
       modalOverview.innerHTML = renderModalTextWithLinks(data.overview);
 
-      // Populate tab 2 list
       modalTestingList.innerHTML = data.testingStrategy.map(item => `
-        <li style="margin-bottom: 0.7rem; display: flex; gap: 0.6rem; align-items: flex-start;">
+        <li style="margin-bottom: 0.75rem; display: flex; gap: 0.65rem; align-items: flex-start;">
           <span style="color: var(--gold-primary); font-weight: bold;">✦</span>
           <span>${renderModalTextWithLinks(item)}</span>
         </li>
       `).join('');
 
-      // Populate tab 3 list
       modalDefectsList.innerHTML = data.defectsResolved.map(item => `
-        <li style="margin-bottom: 0.7rem; display: flex; gap: 0.6rem; align-items: flex-start;">
+        <li style="margin-bottom: 0.75rem; display: flex; gap: 0.65rem; align-items: flex-start;">
           <span style="color: var(--gold-primary); font-weight: bold;">✦</span>
           <span>${renderModalTextWithLinks(item)}</span>
         </li>
       `).join('');
 
-      // Populate tech chips
       modalTechChips.innerHTML = data.techStack.map(tech => `
         <span class="modal-chip">${tech}</span>
       `).join('');
 
-      // Re-attach hover states for dynamically rendered links
-      modalBackdrop.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('mouseenter', () => document.body.classList.add('hovered'));
-        link.addEventListener('mouseleave', () => document.body.classList.remove('hovered'));
-      });
-
-      // Show first tab by default
       switchModalTab('overview');
 
-      // Open backdrop
       modalBackdrop.classList.add('active');
+      document.body.classList.add('modal-open');
       document.body.style.overflow = 'hidden';
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
     });
   });
 
-  // Close handlers
   function closeModal() {
     modalBackdrop.classList.remove('active');
+    document.body.classList.remove('modal-open');
     document.body.style.overflow = '';
   }
 
@@ -309,7 +412,6 @@ function initProjectModals() {
     }
   });
 
-  // Tab switcher
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const tabKey = btn.getAttribute('data-tab');
@@ -326,43 +428,39 @@ function initProjectModals() {
 }
 
 /* ==========================================================================
-   5. CLIPBOARD COPY & TOAST SYSTEM
+   6. CLIPBOARD COPY & TOAST SYSTEM
    ========================================================================== */
 function initClipboardAndContact() {
-  const copyButtons = document.querySelectorAll('[data-copy]');
+  const copyButtons = document.querySelectorAll('[data-copy], [data-action="copy"]');
   copyButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const textToCopy = btn.getAttribute('data-copy');
-      if (!textToCopy) return;
-
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        showToast(`Copied to clipboard: ${textToCopy}`);
-      }).catch(() => {
-        showToast(`Selected: ${textToCopy}`);
-      });
+      const valToCopy = btn.getAttribute('data-copy') || btn.getAttribute('data-value') || btn.querySelector('.social-detail')?.textContent;
+      if (valToCopy) {
+        navigator.clipboard.writeText(valToCopy.trim()).then(() => {
+          showToast(`Copied "${valToCopy.trim()}" to clipboard!`);
+        }).catch(() => {
+          showToast('Failed to copy to clipboard.');
+        });
+      }
     });
   });
 }
 
 function showToast(message) {
-  let container = document.querySelector('.toast-container');
-  if (!container) {
-    container = document.createElement('div');
-    container.className = 'toast-container';
-    document.body.appendChild(container);
-  }
+  const container = document.querySelector('.toast-container');
+  if (!container) return;
 
   const toast = document.createElement('div');
   toast.className = 'toast';
-  toast.innerHTML = `<span>✦</span> <span>${message}</span>`;
+  toast.innerHTML = `<i data-lucide="check-circle-2" style="width:16px;height:16px;color:var(--gold-bright)"></i> <span>${message}</span>`;
   container.appendChild(toast);
 
-  // Trigger animation
-  requestAnimationFrame(() => {
-    toast.classList.add('show');
-  });
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 
+  setTimeout(() => toast.classList.add('show'), 50);
   setTimeout(() => {
     toast.classList.remove('show');
     setTimeout(() => toast.remove(), 400);
@@ -370,22 +468,20 @@ function showToast(message) {
 }
 
 /* ==========================================================================
-   6. MOBILE MENU
+   7. INTERACTIVE CONTACT FORM VIA WHATSAPP
    ========================================================================== */
-function initMobileMenu() {
-  const toggle = document.querySelector('.mobile-toggle');
-  const navLinks = document.querySelector('.nav-links');
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('form-name')?.value || '';
+  const email = document.getElementById('form-email')?.value || '';
+  const subject = document.getElementById('form-subject')?.value || '';
+  const message = document.getElementById('form-message')?.value || '';
 
-  if (!toggle || !navLinks) return;
+  const waText = `Halo Kezia Natalia Permana,\n\nNama: ${name}\nKontak: ${email}\nPerihal: ${subject}\n\nPesan:\n${message}`;
+  const waUrl = `https://wa.me/6283890559622?text=${encodeURIComponent(waText)}`;
 
-  toggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
-  // Close menu when clicking a link
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-    });
-  });
+  showToast('Opening WhatsApp to send your message...');
+  setTimeout(() => {
+    window.open(waUrl, '_blank');
+  }, 600);
 }
