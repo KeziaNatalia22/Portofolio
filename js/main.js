@@ -89,7 +89,7 @@ function initLuxuryCursorAndGlow() {
    ========================================================================== */
 function initScrollSpy() {
   const navLinks = document.querySelectorAll('.sticky-nav .nav-item');
-  const sections = document.querySelectorAll('section[id], nav[id], div[id="achievements"]');
+  const sections = document.querySelectorAll('section[id], nav[id], div[id="achievements"], div[id="featured-work"]');
 
   window.addEventListener('scroll', () => {
     let current = '';

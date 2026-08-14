@@ -1379,11 +1379,17 @@ body.hovered .custom-cursor-follower {
 }
 
 /* ==========================================================================
-   CAREER EXPERIENCE TIMELINE
+   CAREER EXPERIENCE & FEATURED WORK SECTION (RICH BURGUNDY BAND)
    ========================================================================== */
 
 .experience-section {
-  background: var(--bg-porcelain);
+  background-color: var(--bg-burgundy-main);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(77, 22, 30, 0.6) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(42, 9, 13, 0.8) 0%, transparent 50%);
+  color: var(--text-light-primary);
+  border-top: 1px solid var(--border-gold-subtle);
+  border-bottom: 1px solid var(--border-gold-subtle);
 }
 
 .experience-timeline {
@@ -1395,26 +1401,26 @@ body.hovered .custom-cursor-follower {
 }
 
 .exp-card {
-  background: var(--bg-cream-sand);
-  border: 1px solid var(--border-light);
+  background: var(--bg-burgundy-card);
+  border: 1px solid rgba(232, 211, 167, 0.16);
   border-radius: var(--radius-lg);
   padding: clamp(1.8rem, 3.5vw, 2.5rem);
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
   transition: var(--transition-smooth);
 }
 
 .exp-card:hover {
   transform: translateY(-4px);
-  border-color: var(--border-gold);
-  background: var(--bg-cream-light);
-  box-shadow: var(--shadow-medium);
+  border-color: var(--gold-primary);
+  background: var(--bg-burgundy-hover);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 25px rgba(197, 160, 89, 0.18);
 }
 
 .exp-header {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  border-bottom: 1px solid var(--border-light-strong);
+  border-bottom: 1px solid rgba(232, 211, 167, 0.14);
   padding-bottom: 1.2rem;
   margin-bottom: 1.4rem;
 }
@@ -1427,7 +1433,8 @@ body.hovered .custom-cursor-follower {
 }
 
 .period-pill {
-  background: var(--bg-burgundy-main);
+  background: rgba(197, 160, 89, 0.18);
+  border: 1px solid var(--border-gold);
   color: var(--gold-bright);
   font-size: 0.72rem;
   font-weight: 600;
@@ -1440,8 +1447,9 @@ body.hovered .custom-cursor-follower {
 .badge-onsite {
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--text-dark-secondary);
-  background: rgba(42, 9, 13, 0.06);
+  color: var(--text-light-secondary);
+  background: rgba(250, 245, 238, 0.08);
+  border: 1px solid rgba(250, 245, 238, 0.12);
   padding: 0.35rem 0.75rem;
   border-radius: var(--radius-full);
 }
@@ -1454,7 +1462,7 @@ body.hovered .custom-cursor-follower {
   font-family: var(--font-serif-display);
   font-size: clamp(1.3rem, 2.2vw, 1.6rem);
   font-weight: 700;
-  color: var(--bg-burgundy-deep);
+  color: var(--text-light-primary);
   line-height: 1.25;
 }
 
@@ -1462,15 +1470,20 @@ body.hovered .custom-cursor-follower {
   font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--gold-dark);
+  color: var(--gold-bright);
   margin-top: 0.25rem;
 }
 
 .exp-summary {
   font-size: 0.92rem;
-  color: var(--text-dark-primary);
+  color: var(--text-light-secondary);
   line-height: 1.6;
   margin-bottom: 1.2rem;
+}
+
+.exp-summary strong {
+  color: var(--gold-bright);
+  font-weight: 600;
 }
 
 .exp-highlights {
@@ -1486,20 +1499,20 @@ body.hovered .custom-cursor-follower {
   align-items: flex-start;
   gap: 0.75rem;
   font-size: 0.88rem;
-  color: var(--text-dark-secondary);
+  color: var(--text-light-secondary);
   line-height: 1.55;
 }
 
 .exp-bullet-icon {
   width: 18px;
   height: 18px;
-  color: var(--gold-dark);
+  color: var(--gold-primary);
   flex-shrink: 0;
   margin-top: 0.15rem;
 }
 
 .exp-highlights strong {
-  color: var(--bg-burgundy-main);
+  color: var(--gold-bright);
   font-weight: 600;
 }
 
@@ -1510,9 +1523,9 @@ body.hovered .custom-cursor-follower {
 }
 
 .skill-chip {
-  background: var(--bg-porcelain);
-  border: 1px solid var(--border-light-strong);
-  color: var(--text-dark-primary);
+  background: rgba(42, 9, 13, 0.6);
+  border: 1px solid rgba(232, 211, 167, 0.2);
+  color: var(--text-light-secondary);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -1522,25 +1535,25 @@ body.hovered .custom-cursor-follower {
 }
 
 .skill-chip:hover {
-  background: var(--bg-burgundy-main);
-  color: var(--text-light-primary);
-  border-color: var(--bg-burgundy-main);
+  background: var(--gold-primary);
+  color: var(--bg-burgundy-deep);
+  border-color: var(--gold-primary);
 }
 
 /* Experience Evidence Link Badge */
 .exp-evidence-wrap {
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px dashed var(--border-light-strong);
+  border-top: 1px dashed rgba(232, 211, 167, 0.2);
 }
 
 .exp-evidence-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: var(--gold-light-bg);
+  background: rgba(197, 160, 89, 0.14);
   border: 1px solid var(--border-gold);
-  color: var(--bg-burgundy-main);
+  color: var(--gold-bright);
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -1550,20 +1563,20 @@ body.hovered .custom-cursor-follower {
 }
 
 .exp-evidence-pill i, .exp-evidence-pill svg {
-  color: var(--gold-dark);
+  color: var(--gold-bright);
   width: 15px;
   height: 15px;
 }
 
 .exp-evidence-pill:hover {
-  background: var(--bg-burgundy-main);
-  color: var(--gold-bright);
-  border-color: var(--bg-burgundy-main);
+  background: var(--gold-primary);
+  color: var(--bg-burgundy-deep);
+  border-color: var(--gold-primary);
   box-shadow: var(--shadow-gold);
 }
 
 .exp-evidence-pill:hover i, .exp-evidence-pill:hover svg {
-  color: var(--gold-bright);
+  color: var(--bg-burgundy-deep);
 }
 
 /* ==========================================================================
