@@ -105,9 +105,17 @@ function initScrollSpy() {
 
     if (current) {
       navLinks.forEach((link) => {
-        link.classList.remove('active');
-        if (link.getAttribute('data-nav') === current) {
-          link.classList.add('active');
+        const isCurrent = link.getAttribute('data-nav') === current;
+        if (isCurrent) {
+          if (!link.classList.contains('active')) {
+            link.classList.add('active');
+            // Auto-center the active nav item within the horizontally scrolling nav container on mobile
+            if (window.innerWidth <= 768) {
+              link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+          }
+        } else {
+          link.classList.remove('active');
         }
       });
     }
