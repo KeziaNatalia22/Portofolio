@@ -259,13 +259,14 @@ const projectData = {
     tabLabels: ['Internship Overview', 'QA & Testing Strategy', 'Defects & Resolutions', 'Tools & Technologies'],
     metrics: [
       { num: '50+', label: 'Assigned Testing Tickets Completed' },
+      { num: '170+', label: 'Test Cases Executed' },
       { num: '23', label: 'Software Defects Identified & Logged' },
       { num: '4', label: 'User Roles Tested (Client, Sales, GM, Ops)' }
     ],
     overview: `Performed professional Quality Assurance for an enterprise Transportation Management System (TMS) and Quoting Tools at EFG Consulting, a Bali-based consulting and remote talent solutions company. Ensured high software reliability and business requirement validation across multiple stakeholder roles before production releases.`,
     testingStrategy: [
       'Executed functional, regression, and User Acceptance Testing (UAT) for web-based enterprise applications to ensure product quality before release.',
-      'Completed 50+ assigned testing tickets, validating new features, enhancements, and bug fixes according to detailed business requirements.',
+      'Completed 50+ assigned testing tickets and executed 170+ test cases to validate new features, enhancements, and bug fixes against business requirements.',
       'Utilized Postman to test and validate API endpoints supporting quote status workflows and notification systems, verifying correct behavior across multiple user roles (Client, Sales, GM, Operations).',
       'Collaborated closely with developers, project managers, senior QA engineers, and stakeholders to verify bug fixes and ensure strict compliance with quality standards.'
     ],
