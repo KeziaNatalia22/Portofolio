@@ -40,6 +40,14 @@ function initLuxuryCursorAndGlow() {
 
   if (!cursor || !follower) return;
 
+  // Disable custom cursor tracking on touch/mobile devices for optimal performance and touch scrolling
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches || ('ontouchstart' in window) || window.innerWidth <= 1024;
+  if (isTouchDevice) {
+    cursor.style.display = 'none';
+    follower.style.display = 'none';
+    return;
+  }
+
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
   let followerX = mouseX;
@@ -63,7 +71,7 @@ function initLuxuryCursorAndGlow() {
       const shiftY = (mouseY / window.innerHeight - 0.5) * -50;
       glow2.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
     }
-  });
+  }, { passive: true });
 
   function renderFollower() {
     followerX += (mouseX - followerX) * 0.15;
@@ -89,14 +97,20 @@ function initLuxuryCursorAndGlow() {
    ========================================================================== */
 function initScrollSpy() {
   const navLinks = document.querySelectorAll('.sticky-nav .nav-item');
+  const stickyNav = document.getElementById('sticky-nav');
   const sections = document.querySelectorAll('section[id], nav[id], div[id="achievements"], div[id="featured-work"]');
 
-  window.addEventListener('scroll', () => {
+  if (!sections.length || !navLinks.length) return;
+
+  let ticking = false;
+
+  function updateActiveNav() {
     let current = '';
-    const scrollPosition = window.scrollY + 200;
+    const scrollPosition = window.scrollY + 180;
 
     sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
+      const rect = section.getBoundingClientRect();
+      const sectionTop = rect.top + window.scrollY;
       const sectionHeight = section.offsetHeight;
       if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
         current = section.getAttribute('id');
@@ -108,16 +122,30 @@ function initScrollSpy() {
         const isCurrent = link.getAttribute('data-nav') === current;
         if (isCurrent) {
           if (!link.classList.contains('active')) {
+            navLinks.forEach((l) => l.classList.remove('active'));
             link.classList.add('active');
-            // Auto-center the active nav item within the horizontally scrolling nav container on mobile
-            if (window.innerWidth <= 768) {
-              link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            
+            // Center active item within horizontal navbar container ONLY (prevents window scroll lock)
+            if (stickyNav && window.innerWidth <= 768) {
+              const linkLeft = link.offsetLeft;
+              const linkWidth = link.offsetWidth;
+              const navWidth = stickyNav.offsetWidth;
+              stickyNav.scrollTo({
+                left: linkLeft - (navWidth / 2) + (linkWidth / 2),
+                behavior: 'smooth'
+              });
             }
           }
-        } else {
-          link.classList.remove('active');
         }
       });
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateActiveNav);
+      ticking = true;
     }
   }, { passive: true });
 }
@@ -196,22 +224,28 @@ function initMetricCounters() {
    ========================================================================== */
 function initScrollAnimations() {
   const revealElements = document.querySelectorAll('.reveal');
+  if (!revealElements.length) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
-    }
-  );
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.05,
+        rootMargin: '0px 0px -20px 0px'
+      }
+    );
 
-  revealElements.forEach((el) => observer.observe(el));
+    revealElements.forEach((el) => observer.observe(el));
+  } else {
+    revealElements.forEach((el) => el.classList.add('active'));
+  }
 }
 
 /* ==========================================================================

@@ -219,9 +219,12 @@ body.hovered .custom-cursor-follower {
   border-color: var(--gold-bright);
 }
 
-@media (hover: none) and (pointer: coarse) {
+@media (hover: none), (pointer: coarse), (max-width: 1024px) {
   .custom-cursor, .custom-cursor-follower {
     display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
   }
 
   .btn:active,
@@ -1264,6 +1267,8 @@ body.hovered .custom-cursor-follower {
   background: var(--bg-cream-sand);
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
 }
 
 .spotlight-container {
@@ -1276,6 +1281,7 @@ body.hovered .custom-cursor-follower {
 .spotlight-image-side {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .spotlight-frame {
@@ -1288,6 +1294,7 @@ body.hovered .custom-cursor-follower {
   overflow: hidden;
   box-shadow: var(--shadow-luxury);
   background: var(--bg-burgundy-deep);
+  transform: translateZ(0);
 }
 
 .spotlight-img {
@@ -1296,6 +1303,7 @@ body.hovered .custom-cursor-follower {
   object-fit: cover;
   object-position: top center;
   transition: transform 0.6s ease;
+  display: block;
 }
 
 .spotlight-frame:hover .spotlight-img {
@@ -1309,6 +1317,7 @@ body.hovered .custom-cursor-follower {
   transform: translateX(-50%);
   background: rgba(42, 9, 13, 0.9);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-gold);
   color: var(--gold-bright);
   font-size: 0.7rem;
@@ -1318,6 +1327,8 @@ body.hovered .custom-cursor-follower {
   padding: 0.45rem 1.2rem;
   border-radius: var(--radius-full);
   white-space: nowrap;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .spotlight-content-side {
@@ -1328,7 +1339,7 @@ body.hovered .custom-cursor-follower {
   font-family: var(--font-serif-display);
   font-size: clamp(2.2rem, 3.8vw, 3.4rem);
   color: var(--gold-muted);
-  line-height: 1;
+  line-height: 1.1;
   margin-bottom: 0.5rem;
 }
 
@@ -1337,6 +1348,7 @@ body.hovered .custom-cursor-follower {
   align-items: baseline;
   gap: 0.8rem;
   margin-bottom: 1.2rem;
+  flex-wrap: wrap;
 }
 
 .stat-big-number {
@@ -1384,6 +1396,13 @@ body.hovered .custom-cursor-follower {
   margin-top: 0.15rem;
 }
 
+.keypoint-icon svg,
+.keypoint-icon i {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .keypoint-text {
   font-size: 0.88rem;
   color: var(--text-dark-secondary);
@@ -1393,6 +1412,13 @@ body.hovered .custom-cursor-follower {
 .keypoint-text strong {
   color: var(--bg-burgundy-main);
   font-weight: 600;
+}
+
+.spotlight-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 /* ==========================================================================
@@ -2835,13 +2861,22 @@ body.modal-open::-webkit-scrollbar {
 /* Reveal Animations */
 .reveal {
   opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 .reveal-delay-1 { transition-delay: 0.15s; }
@@ -2905,10 +2940,18 @@ body.modal-open::-webkit-scrollbar {
     margin-bottom: 0.5rem;
   }
 
-  .huge-stat-display, 
-  .keypoint-item {
+  .huge-stat-display {
     justify-content: center;
     text-align: left;
+  }
+
+  .keypoint-item {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .spotlight-cta {
+    justify-content: center;
   }
 
   .projects-grid {
@@ -2954,10 +2997,18 @@ body.modal-open::-webkit-scrollbar {
    2. MOBILE LANDSCAPE & PHABLETS (max-width: 768px)
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-  /* Prevent horizontal scroll */
-  html, body {
-    overflow-x: hidden !important;
+  /* Prevent horizontal scroll cleanly without breaking momentum vertical scroll on touch */
+  html {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
     width: 100%;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
   }
 
   .section-container {
@@ -3191,18 +3242,39 @@ body.modal-open::-webkit-scrollbar {
   }
 
   /* Spotlight Story */
+  .spotlight-container {
+    gap: 2.2rem;
+  }
+
   .spotlight-frame {
-    max-width: 290px;
-    height: 350px;
-    border-radius: 145px 145px var(--radius-md) var(--radius-md);
+    max-width: 280px;
+    height: 340px;
+    border-radius: 140px 140px var(--radius-md) var(--radius-md);
   }
 
   .spotlight-content-side {
     padding-left: 0;
+    text-align: left;
+  }
+
+  .spotlight-lead-title {
+    font-size: clamp(1.9rem, 6.5vw, 2.6rem);
+    text-align: left;
+  }
+
+  .huge-stat-display {
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 0.65rem;
+    margin-bottom: 1rem;
   }
 
   .stat-big-number {
-    font-size: clamp(2.8rem, 8vw, 3.8rem);
+    font-size: clamp(2.6rem, 8.5vw, 3.6rem);
+  }
+
+  .stat-unit {
+    font-size: 0.84rem;
   }
 
   .spotlight-text {
@@ -3213,15 +3285,31 @@ body.modal-open::-webkit-scrollbar {
 
   .spotlight-keypoints {
     gap: 0.85rem;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.6rem;
   }
 
   .keypoint-item {
     align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .keypoint-icon {
+    width: 20px;
+    height: 20px;
   }
 
   .keypoint-text {
     font-size: 0.84rem;
+  }
+
+  .spotlight-cta {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .spotlight-cta .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   /* Experience Cards */
@@ -3643,10 +3731,54 @@ body.modal-open::-webkit-scrollbar {
   }
 
   /* Spotlight */
+  .spotlight-container {
+    gap: 1.8rem;
+  }
+
   .spotlight-frame {
-    max-width: 240px;
-    height: 290px;
-    border-radius: 120px 120px var(--radius-sm) var(--radius-sm);
+    max-width: 230px;
+    height: 280px;
+    border-radius: 115px 115px var(--radius-sm) var(--radius-sm);
+  }
+
+  .spotlight-tag-badge {
+    bottom: 1rem;
+    font-size: 0.62rem;
+    padding: 0.35rem 0.9rem;
+    letter-spacing: 0.12em;
+  }
+
+  .spotlight-lead-title {
+    font-size: 1.85rem;
+  }
+
+  .huge-stat-display {
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .stat-big-number {
+    font-size: 2.5rem;
+  }
+
+  .stat-unit {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+  }
+
+  .spotlight-text {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 1.2rem;
+  }
+
+  .spotlight-keypoints {
+    gap: 0.75rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .keypoint-text {
+    font-size: 0.82rem;
   }
 
   .spotlight-cta {
@@ -3657,6 +3789,8 @@ body.modal-open::-webkit-scrollbar {
 
   .spotlight-cta .btn {
     width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
   }
 
   /* Tech Stack Grid */
@@ -3739,6 +3873,20 @@ body.modal-open::-webkit-scrollbar {
   .sticky-nav .nav-item {
     padding: 0.35rem 0.65rem;
     font-size: 0.62rem;
+  }
+
+  .spotlight-frame {
+    max-width: 200px;
+    height: 250px;
+    border-radius: 100px 100px var(--radius-sm) var(--radius-sm);
+  }
+
+  .stat-big-number {
+    font-size: 2.15rem;
+  }
+
+  .stat-unit {
+    font-size: 0.72rem;
   }
 
   .tech-badges-grid {
